@@ -59,7 +59,7 @@ var. This dict is passed as is to
 
 .. code:: python
 
-   pyppeeter_pdf_options {
+   pyppeteer_pdf_options = {
        'printBackground': True,
        'format': 'A4',
        'margin': {

@@ -8,7 +8,7 @@ from sphinx.application import Sphinx
 from sphinx.util.osutil import make_filename
 
 
-version = (0, 1, 0)
+version = (0, 1, 1)
 
 
 DEFAULT_PDF_OPTIONS = {

@@ -28,8 +28,8 @@ with open("README.rst", "r") as fh:
 
 setup(
     name="sphinx_pyppeteer_builder",
-    version="0.1.0",
-    url="https://procrastinator.nerv-project.eu/nerv-project/tools/sphinx_pyppeteer_builder",
+    version="0.1.1",
+    url="https://procrastinator.nerv-project.eu/nerv-project/sphinx_pyppeteer_builder",
     license="EUPL 1.2",
     author="Kujiu",
     author_email="kujiu-pypi@kujiu.org",
@@ -70,7 +70,7 @@ setup(
     ],
     keywords="sphinx doc pdf pyppeteer",
     project_urls={
-        "Source": "https://procrastinator.nerv-project.eu/nerv-project/tools/sphinx_pyppeteer_builder",
-        "Issues": "https://procrastinator.nerv-project.eu/nerv-project/tools/sphinx_pyppeteer_builder/issues",
+        "Source": "https://procrastinator.nerv-project.eu/nerv-project/sphinx_pyppeteer_builder",
+        "Issues": "https://procrastinator.nerv-project.eu/nerv-project/sphinx_pyppeteer_builder/issues",
     },
 )
