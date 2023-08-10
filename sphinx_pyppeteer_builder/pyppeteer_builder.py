@@ -104,6 +104,7 @@ class PyppeteerPDFBuilder(SingleFileHTMLBuilder):
             'args': [
                 '--allow-file-access-from-file',
                 '--disable-web-security',
+                '--no-sandbox',
             ]
         })
         try:
