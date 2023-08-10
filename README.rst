@@ -1,3 +1,8 @@
+Fork of https://procrastinator.nerv-project.eu/nerv-project/sphinx_pyppeteer_builder
+====================================================================================
+
+For bugfix. See https://procrastinator.nerv-project.eu/nerv-project/sphinx_pyppeteer_builder.
+
 Sphinx Pyppeteer builder
 ========================
 
