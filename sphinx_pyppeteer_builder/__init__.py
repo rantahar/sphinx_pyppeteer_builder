@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+from os import path
 from copy import deepcopy
 
 from .pyppeteer_builder import PyppeteerPDFBuilder
@@ -28,6 +29,20 @@ def on_config_inited(app, config):
     pdf_options = deepcopy(DEFAULT_PDF_OPTIONS)
     pdf_options.update(app.config.pyppeteer_pdf_options)
     app.config.pyppeteer_pdf_options = pdf_options
+
+
+def prepare_pyppeteer_assets(app):
+    print("APP", app.builder.name)
+
+    if app.builder.name != 'pyppeteer':
+        return
+    
+    app.add_js_file('sphinx-tabs.js')
+    app.add_css_file('sphinx-tabs.css')
+    
+    static_dir = path.abspath(path.join(path.dirname(__file__), 'static'))
+    app.config.html_static_path.append(static_dir)
+    app.add_css_file('print_tabs.css')
 
 
 def setup(app: Sphinx) -> Dict[str, Any]:
@@ -107,6 +122,9 @@ def setup(app: Sphinx) -> Dict[str, Any]:
         '',
         'pyppeteer'
     )
+
+    app.connect('builder-inited', prepare_pyppeteer_assets)
+
 
     return {
         'version': version,
