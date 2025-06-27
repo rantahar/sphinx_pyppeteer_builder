@@ -47,7 +47,7 @@ def visit_group_tab_node_html(self, node):
     title_html = f'<h3 class="group-tab-title">{title_text}</h3>'
     self.body.append(title_html)
     
-    panel_classes = 'group-tab-content my-extra-class'
+    panel_classes = 'group-tab-content'
     self.body.append(self.starttag(node, 'div', CLASS=panel_classes))
 
 def depart_group_tab_node_html(self, node):
