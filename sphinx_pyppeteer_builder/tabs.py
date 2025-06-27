@@ -1,9 +1,9 @@
 from docutils import nodes
-from docutils.parsers.rst import directives
 from sphinx.util.docutils import SphinxDirective
 import uuid
 
 
+# Placeholder classes for the sphinx tags
 class TabsNode(nodes.General, nodes.Element):
     pass
 
@@ -11,7 +11,11 @@ class GroupTabNode(nodes.General, nodes.Element):
     pass
 
 
+
 class TabsDirective(SphinxDirective):
+    """ Directive to process tabs. Does not do much, since 
+        we don't need to change the order of the content.
+    """
     has_content = True
 
     def run(self):
@@ -22,6 +26,9 @@ class TabsDirective(SphinxDirective):
 
 
 class GroupTabDirective(SphinxDirective):
+    """ Directive for the group-tab sphinx tag. Doesn not do much,
+        since we don't need to change the order of the content.
+    """
     has_content = True
     required_arguments = 1
     optional_arguments = 0
@@ -37,12 +44,16 @@ class GroupTabDirective(SphinxDirective):
 
 
 def visit_tabs_node_html(self, node):
+    """ Create a div for the tabs """
     self.body.append(self.starttag(node, 'div', CLASS='group-tabs-container'))
 
 def depart_tabs_node_html(self, node):
+    """ Close the tabs container div """
     self.body.append('</div>')
 
 def visit_group_tab_node_html(self, node):
+    """ Process the group tab. Creates a title and a content div. """
+
     title_text = node.get('title', '')
     title_html = f'<h3 class="group-tab-title">{title_text}</h3>'
     self.body.append(title_html)
@@ -51,10 +62,12 @@ def visit_group_tab_node_html(self, node):
     self.body.append(self.starttag(node, 'div', CLASS=panel_classes))
 
 def depart_group_tab_node_html(self, node):
-    # Close the content div.
+    """ Close the group tab content div. """
     self.body.append('</div>')
 
 def setup(app):
+    """ Setup section to make it a sphinx extension. Adds the tabs and group-tab directives. """
+
     app.add_node(TabsNode, html=(visit_tabs_node_html, depart_tabs_node_html))
     app.add_node(GroupTabNode, html=(visit_group_tab_node_html, depart_group_tab_node_html))
 
